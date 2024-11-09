@@ -1,0 +1,57 @@
+/* Ensure buttons are styled and visible */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff; /* Primary blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Ensure inputs are styled and visible */
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Ensure form container takes up proper space and centers content */
+  form {
+    max-width: 400px;
+    margin: 20px auto; /* Center the form on the page */
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Prevent other elements from covering form elements */
+  form,
+  button,
+  input {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Optional: Styling for error messages */
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  

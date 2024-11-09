@@ -1,0 +1,33 @@
+<div>
+    <h2>Assigned Orders</h2>
+    <table *ngIf="orders.length > 0">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Pickup Location</th>
+          <th>Drop-off Location</th>
+          <th>Package Details</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order._id }}</td>
+          <td>{{ order.pickupLocation }}</td>
+          <td>{{ order.dropoffLocation }}</td>
+          <td>{{ order.packageDetails }}</td>
+          <td>{{ order.status }}</td>
+          <td>
+            <button (click)="updateOrderStatus(order._id, 'Accepted')" [disabled]="order.status !== 'Pending'">Accept</button>
+            <button (click)="updateOrderStatus(order._id, 'Declined')" [disabled]="order.status !== 'Pending'">Decline</button>
+            <button (click)="updateOrderStatus(order._id, 'Picked Up')" [disabled]="order.status !== 'Accepted'">Picked Up</button>
+            <button (click)="updateOrderStatus(order._id, 'Delivered')" [disabled]="order.status !== 'Picked Up'">Delivered</button>
+          </td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="orders.length === 0">No assigned orders.</p>
+  </div>
+  

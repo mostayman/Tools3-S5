@@ -1,0 +1,15 @@
+<div *ngIf="order">
+    <h2>Order Details</h2>
+    <p><strong>Pickup Location:</strong> {{ order.pickupLocation }}</p>
+    <p><strong>Drop-off Location:</strong> {{ order.dropoffLocation }}</p>
+    <p><strong>Package Details:</strong> {{ order.packageDetails }}</p>
+    <p><strong>Delivery Time:</strong> {{ order.deliveryTime | date:'short' }}</p>
+    <p><strong>Courier Info:</strong> {{ order.courierInfo }}</p>
+    <p><strong>Status:</strong> {{ order.status }}</p>
+  
+    <!-- Cancel button, visible only if order status is pending -->
+    <button *ngIf="order.status === 'Pending'" (click)="cancelOrder()">Cancel Order</button>
+  </div>
+  
+  <p *ngIf="!order">Order not found.</p>
+  

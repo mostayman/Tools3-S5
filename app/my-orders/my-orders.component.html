@@ -1,0 +1,29 @@
+<div>
+    <h2>My Orders</h2>
+    <table *ngIf="orders.length > 0">
+      <thead>
+        <tr>
+          <th>Pickup Location</th>
+          <th>Drop-off Location</th>
+          <th>Package Details</th>
+          <th>Delivery Time</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.pickupLocation }}</td>
+          <td>{{ order.dropoffLocation }}</td>
+          <td>{{ order.packageDetails }}</td>
+          <td>{{ order.deliveryTime | date:'short' }}</td>
+          <td>{{ order.status }}</td>
+          <td>
+            <a [routerLink]="['/order-details', order._id]">View Details</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="orders.length === 0">No orders found.</p>
+  </div>
+  

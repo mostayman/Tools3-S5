@@ -1,0 +1,32 @@
+<div>
+    <h2>Assign Orders to Couriers</h2>
+    <table *ngIf="orders.length > 0">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Pickup Location</th>
+          <th>Drop-off Location</th>
+          <th>Status</th>
+          <th>Assigned Courier</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order._id }}</td>
+          <td>{{ order.pickupLocation }}</td>
+          <td>{{ order.dropoffLocation }}</td>
+          <td>{{ order.status }}</td>
+          <td>{{ order.courierId || 'Unassigned' }}</td>
+          <td>
+            <select [(ngModel)]="order.courierId">
+              <option *ngFor="let courier of couriers" [value]="courier._id">{{ courier.name }}</option>
+            </select>
+            <button (click)="assignCourier(order._id, order.courierId)">Assign</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="orders.length === 0">No orders available for assignment.</p>
+  </div>
+  
