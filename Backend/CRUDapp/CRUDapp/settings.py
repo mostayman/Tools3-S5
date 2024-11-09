@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'CRUDapp',
+    'orders',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -76,16 +78,22 @@ TEMPLATES = [
 WSGI_APPLICATION = 'CRUDapp.wsgi.application'
 
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+}
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'package_tracking',  # Use the name of your created database
-        'ENFORCE_SCHEMA': False,  # Optional: set to False if you want to skip schema enforcement
+        'NAME': 'packagetracking_system',  # This is the name of your MongoDB database
         'CLIENT': {
-            'host': 'mongodb://localhost:27017',
+            'host': 'mongodb://localhost:27017',  # MongoDB URL
         },
     }
 }
