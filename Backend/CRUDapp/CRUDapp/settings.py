@@ -98,6 +98,13 @@ DATABASES = {
     }
 }
 
+# settings.py
+
+DATETIME_INPUT_FORMATS = [
+    '%Y-%m-%d %H:%M:%S',  # Example: 2024-11-10 14:30:00
+    '%d-%m-%Y %H:%M:%S',
+]
+
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
