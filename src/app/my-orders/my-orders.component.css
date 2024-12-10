@@ -1,0 +1,46 @@
+.my-orders-container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .order-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-item h3 {
+    margin-top: 0;
+  }
+  
+  span {
+    font-weight: bold;
+  }
+  
+  .pending {
+    color: orange;
+  }
+  
+  .shipped {
+    color: blue;
+  }
+  
+  .delivered {
+    color: green;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  

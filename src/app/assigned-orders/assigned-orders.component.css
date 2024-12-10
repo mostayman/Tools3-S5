@@ -1,0 +1,55 @@
+.order-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .order-item {
+    border: 1px solid #ddd;
+    padding: 16px;
+    margin: 8px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .order-details {
+    flex: 1;
+  }
+  
+  .status {
+    font-weight: bold;
+  }
+  
+  .status.Pending {
+    color: orange;
+  }
+  
+  .status.Accepted {
+    color: green;
+  }
+  
+  .status.Declined {
+    color: red;
+  }
+  
+  .order-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .accept-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  .decline-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  

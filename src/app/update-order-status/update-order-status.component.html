@@ -1,0 +1,8 @@
+<div class="status-update">
+    <h4>Update Status for Order #{{ order.id }}</h4>
+    <select [(ngModel)]="order.status" class="status-dropdown">
+      <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+    </select>
+    <button (click)="updateStatus()">Update Status</button>
+  </div>
+  

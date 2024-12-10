@@ -1,0 +1,45 @@
+<div class="order-container">
+    <h2>Create Order</h2>
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Pickup Location -->
+      <div>
+        <label for="pickupLocation">Pickup Location:</label>
+        <input id="pickupLocation" formControlName="pickupLocation" type="text" />
+        <div *ngIf="orderForm.get('pickupLocation')?.invalid && orderForm.get('pickupLocation')?.touched">
+          <small *ngIf="orderForm.get('pickupLocation')?.errors?.['required']">Pickup location is required.</small>
+        </div>
+      </div>
+    
+      <!-- Drop-off Location -->
+      <div>
+        <label for="dropOffLocation">Drop-off Location:</label>
+        <input id="dropOffLocation" formControlName="dropOffLocation" type="text" />
+        <div *ngIf="orderForm.get('dropOffLocation')?.invalid && orderForm.get('dropOffLocation')?.touched">
+          <small *ngIf="orderForm.get('dropOffLocation')?.errors?.['required']">Drop-off location is required.</small>
+        </div>
+      </div>
+    
+      <!-- Package Details -->
+      <div>
+        <label for="packageDetails">Package Details:</label>
+        <textarea id="packageDetails" formControlName="packageDetails"></textarea>
+        <div *ngIf="orderForm.get('packageDetails')?.invalid && orderForm.get('packageDetails')?.touched">
+          <small *ngIf="orderForm.get('packageDetails')?.errors?.['required']">Package details are required.</small>
+        </div>
+      </div>
+    
+      <!-- Delivery Time -->
+      <div>
+        <label for="deliveryTime">Delivery Time:</label>
+        <input id="deliveryTime" formControlName="deliveryTime" type="datetime-local" />
+        <div *ngIf="orderForm.get('deliveryTime')?.invalid && orderForm.get('deliveryTime')?.touched">
+          <small *ngIf="orderForm.get('deliveryTime')?.errors?.['required']">Delivery time is required.</small>
+        </div>
+      </div>
+    
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="orderForm.invalid">Submit Order</button>
+    </form>
+  </div>
+  

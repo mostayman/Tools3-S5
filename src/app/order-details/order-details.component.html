@@ -1,0 +1,31 @@
+<div *ngIf="orderDetails">
+    <h2>Order Details</h2>
+  
+    <div>
+      <strong>Order ID:</strong> {{ orderDetails.id }}
+    </div>
+    <div>
+      <strong>Status:</strong> {{ orderDetails.status }}
+    </div>
+    <div>
+      <strong>Package Details:</strong> {{ orderDetails.packageDetails }}
+    </div>
+    <div>
+      <strong>Courier Info:</strong> {{ orderDetails.courierInfo }}
+    </div>
+    <div>
+      <strong>Locations:</strong>
+      <ul>
+        <li *ngFor="let location of orderDetails.locations">{{ location }}</li>
+      </ul>
+    </div>
+  
+    <button *ngIf="orderDetails.status === 'pending'" (click)="cancelOrder()">
+      Cancel Order
+    </button>
+  </div>
+  
+  <div *ngIf="!orderDetails">
+    <p>Loading order details...</p>
+  </div>
+  

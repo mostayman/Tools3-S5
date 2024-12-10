@@ -1,0 +1,31 @@
+<div class="my-orders-container">
+    <h2>My Orders</h2>
+  
+    <div *ngIf="orders.length === 0">
+      <p>You have no orders yet.</p>
+    </div>
+  
+    <div *ngIf="orders.length > 0">
+      <ul>
+        <li *ngFor="let order of orders">
+          <div class="order-item">
+            <h3>Order ID: {{ order.orderId }}</h3>
+            <p><strong>Pickup Location:</strong> {{ order.pickupLocation }}</p>
+            <p><strong>Drop-off Location:</strong> {{ order.dropOffLocation }}</p>
+            <p><strong>Package Details:</strong> {{ order.packageDetails }}</p>
+            <p><strong>Delivery Time:</strong> {{ order.deliveryTime | date: 'short' }}</p>
+            <p><strong>Status:</strong> 
+              <span [ngClass]="{
+                'pending': order.status === 'Pending',
+                'shipped': order.status === 'Shipped',
+                'delivered': order.status === 'Delivered'
+              }">
+                {{ order.status }}
+              </span>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

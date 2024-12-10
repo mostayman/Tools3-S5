@@ -1,0 +1,27 @@
+<div class="manage-orders">
+    <h1>Manage Orders</h1>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.id }}</td>
+          <td>{{ order.customerName }}</td>
+          <td>{{ order.status }}</td>
+          <td>
+            <button (click)="updateOrderStatus(order.id, 'Processing')">Set to Processing</button>
+            <button (click)="updateOrderStatus(order.id, 'Completed')">Set to Completed</button>
+            <button (click)="deleteOrder(order.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

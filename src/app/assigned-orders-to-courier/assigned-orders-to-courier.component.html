@@ -1,0 +1,27 @@
+<div class="assigned-orders">
+    <h1>Assigned Orders to Couriers</h1>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer Name</th>
+          <th>Courier Name</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of assignedOrders">
+          <td>{{ order.id }}</td>
+          <td>{{ order.customerName }}</td>
+          <td>{{ order.courierName }}</td>
+          <td>{{ order.status }}</td>
+          <td>
+            <button (click)="reassignOrder(order.id)">Reassign Courier</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

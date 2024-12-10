@@ -1,0 +1,14 @@
+<div class="order-list">
+    <div *ngFor="let order of assignedOrders" class="order-item">
+      <div class="order-details">
+        <h4>Order #{{ order.id }}</h4>
+        <p>{{ order.details }}</p>
+        <span class="status" [ngClass]="order.status">{{ order.status }}</span>
+      </div>
+      <div class="order-actions">
+        <button class="accept-btn" (click)="acceptOrder(order)">Accept</button>
+        <button class="decline-btn" (click)="declineOrder(order)">Decline</button>
+      </div>
+    </div>
+  </div>
+  
