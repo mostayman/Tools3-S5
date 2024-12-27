@@ -1,0 +1,52 @@
+services:
+  db: 
+    image: postgres:15
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 100603
+      POSTGRES_DB: ToolsProject
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend_network
+
+  backend:
+    image: backend-image
+    container_name: backend-server
+    build:
+      context: ./src/Back-end
+    environment:
+      DB_USER: postgres
+      DB_PASS: 100603
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ToolsProject
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+    networks:
+      - backend_network
+
+  frontend:
+    image: react-frontend
+    container_name: react-frontend
+    build:
+      context: ./
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - backend_network
+
+volumes:
+  postgres_data: {}
+
+networks:
+  backend_network:
+    driver: bridge
